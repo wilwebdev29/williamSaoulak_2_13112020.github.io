@@ -1,3 +1,88 @@
-#websiite{
-	
+
+/********  COLORS ***************
+*********************************
+---- Bleu clair  | 0065fc | 0 101 252 
+---- gris clair  | f2f2f2 | 242 242 242
+---- gris foncer | 1f1f1f | 31 31 31
+*********************************
+*********************************/
+
+/********* FONTS **********************************************************************
+***************************************************************************************
+------- Raleway --------
+https://fonts.google.com/specimen/Raleway?sidebar.open=true&selection.family=Raleway.
+font-family: 'Raleway', sans-serif;
+****************************************************************************************
+***************************************************************************************/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
+*{
+	padding:0px;
+	margin:0px;
 }
+
+#website{
+	font-family: 'Raleway', sans-serif;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+#website_header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+#logo{
+	padding: 45px auto;
+}
+#logo img{}
+
+nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+nav a{
+	width: 160px;
+	padding-top: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #1f1f1f;
+}
+
+
+h1{
+	font:700 21px 'Raleway', sans-serif;
+	color:#000;
+}
+/********* formulaire recherche par ville start ***/
+	form{
+		width: 420px;
+		border-radius: 10px;
+		border: 1px solid #f2f2f2;
+		display: flex;
+		overflow: hidden;
+	}
+	form a{
+		width: 50px;
+		font: 700 18px/50px 'Raleway', sans-serif;
+		color: #000;
+		text-align: center;
+		background-color: #f2f2f2;
+	}
+	form input[type=text]{
+		flex: 1;
+		font: 700 18px/50px 'Raleway', sans-serif;
+		padding-left: 15px;
+		border: none;
+	}
+	form input[type=submit]{
+		width: 135px;
+		font: 700 18px/50px 'Raleway', sans-serif;
+		color: #FFF;
+		text-align: center;
+		background-color: #0065fc;
+		border: none;
+	}
+/********* formulaire recherche par ville end ***/

@@ -3,18 +3,21 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Reservia</title>
+
+		<link rel="stylesheet" href="css/style.css"/>
+		<script src="https://kit.fontawesome.com/d03511beba.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div id="website">
 
 			<header id="website_header"> <!-- entete du document -->
-				<img id="logo" alt='logo reservia' src=""/>
+				<div id='logo'>
+					<img  alt='logo reservia' src="css/images/reservia.svg"/>
+				</div>
 				<nav><!-- navigation -->
-					<ul>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-						<li><a href="#"></a></li>
-					</ul>
+					<a href="#">Hébergements</a>
+					<a href="#">Activités</a>
+					<a href="#">S'inscrire</a>
 				</nav>
 			</header>
 
@@ -22,26 +25,32 @@
 			<section><!-- corp de page -->
 
 				<header><!-- zone de recherche par ville & filtre -->
-					<h1></h1>
-					<p></p>
+					<h1>Trouvez votre hébergement pour des vacances de rêve</h1>
+					<p>En plein centre ville ou en pleine nature</p>
 
 					<!-- recherche de la ville -->
-					<div id="search_loaction"></div>
+					<form method="post" action="index.html" id="search_loaction">
+						<a href="#"><i class="fas fa-map-marker-alt"></i></a>
+						<input type="text" name="search_city" value="Marseille, France"/>
+						<input type="submit" value="rechercher"/>
+					</form>
 
 					<!-- filtre de recherche -->
-					<div id="filter"></div>
+					<div id="filter">
+						
+					</div>
 
 					<p id="log_result_search"></p>
 				</header>
 
 				<section id="result_hebergement"> <!-- resultat recherche hebergements -->
-					<h1></h1>
+					<h1>Hebergement à Marseille</h1>
 					<div class="grid"></div>
-					<a href="#"></a>
+					<a href="#">Afficher plus</a>
 				</section>
 
 				<section id="result_activite"><!-- resulta recherche activités -->
-					<h1></h1>
+					<h1>Activités a Marseille</h1>
 					<div class="grid"></div>
 				</section>
 			</section>
@@ -49,20 +58,20 @@
 			
 			<footer><!-- pied de page -->
 				<ul id='about'> <!-- colone a propos -->
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>A propos</li>
+					<li>Fonctionnement du site</li>
+					<li>Conditions générales de vente</li>
+					<li>Données et confidentialité</li>
 				</ul>
 				<ul id='hebergement'><!-- colone nos hebergemnts -->
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Nos hébergements</li>
+					<li>Charte quualités</li>
+					<li>Soumetre votre hôtel</li>
 				</ul>
 				<ul id='help'><!-- colone assistance -->
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>Assistance</li>
+					<li>CEntre d'aide</li>
+					<li>Nous contacter</li>
 				</ul>
 			</footer>
 
