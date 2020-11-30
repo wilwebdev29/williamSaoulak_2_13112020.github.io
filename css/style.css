@@ -1,88 +1,717 @@
+/***********************************************************************************************************
+	william saoulak --- livrable "reservia" openclassrooms
+	
+	***COLORS****
+	Bleu clair  | 0065fc | 0 101 252 
+	gris clair  | f2f2f2 | 242 242 242
+	gris foncer | d9d9d9 | 
+	gris(texte) | 1f1f1f | 31 31 31
 
-/********  COLORS ***************
-*********************************
----- Bleu clair  | 0065fc | 0 101 252 
----- gris clair  | f2f2f2 | 242 242 242
----- gris foncer | 1f1f1f | 31 31 31
-*********************************
-*********************************/
-
-/********* FONTS **********************************************************************
-***************************************************************************************
-------- Raleway --------
-https://fonts.google.com/specimen/Raleway?sidebar.open=true&selection.family=Raleway.
-font-family: 'Raleway', sans-serif;
-****************************************************************************************
-***************************************************************************************/
-
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap');
-*{
-	padding:0px;
-	margin:0px;
-}
-
-#website{
+	***FONTS*** 
+	Raleway --------
+	https://fonts.google.com/specimen/Raleway?sidebar.open=true&selection.family=Raleway.
 	font-family: 'Raleway', sans-serif;
-	padding-left: 50px;
-	padding-right: 50px;
-}
-#website_header{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
-#logo{
-	padding: 45px auto;
-}
-#logo img{}
-
-nav{
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-}
-nav a{
-	width: 160px;
-	padding-top: 50px;
-	text-align: center;
-	text-decoration: none;
-	color: #1f1f1f;
-}
+************************************************************************************************************/
 
 
-h1{
-	font:700 21px 'Raleway', sans-serif;
-	color:#000;
-}
-/********* formulaire recherche par ville start ***/
-	form{
-		width: 420px;
-		border-radius: 10px;
-		border: 1px solid #f2f2f2;
+/***********************************************************************************************************/
+/************************************************ GENERIQUE ************************************************/
+/***********************************************************************************************************/
+	*{ padding: 0px; margin: 0px; }
+	@font-face{
+		font-family: 'Raleway';
+		src: url('font/Raleway-Bold.ttf') format('truetype');
+		font-weight: 700;
+		font-style: normal;
+	 }
+	@font-face{
+		font-family: 'Raleway';
+		src: url('font/Raleway-ExtraBold.ttf') format('truetype');
+		font-weight: 800;
+		font-style: normal;
+	 }
+	@font-face{
+		font-family: 'Raleway';
+		src: url('font/Raleway-Regular.ttf') format('truetype');
+		font-weight: 400;
+		font-style: normal;
+	 }
+	#website{
+		font-family: 'Raleway', sans-serif;
+		font-size: 1em;
+		font-weight: 400;
+		margin: auto;
+	 }
+	
+	h1{
+		font-weight: 700 ;
+		font-size: 1.4em ;
+		padding: 0px;
+	 }
+	h2{
+		font-weight: 700;
+		font-size: 1.2em;
+		text-indent: 8px;
+		padding : 0px;
+	 }
+	a{
+		text-decoration: none;
+	 }
+	ul{
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+	 }
+	ul li{
+		padding: 0px;
+		margin: 0px;
+	 }
+	
+	.content{
+		padding-left: 3%;
+		padding-right: 3%;
+	 }
+
+	/* liste de vignettes */
+	.box_thumb{
 		display: flex;
+		flex-wrap: wrap;
+		width: auto;
+		justify-content: space-between;
+	 }
+	.thumb{
+		display: flex;
+		width: auto;
+		border: 5px solid #FFF;
 		overflow: hidden;
-	}
-	form a{
-		width: 50px;
-		font: 700 18px/50px 'Raleway', sans-serif;
+		border-radius: 16px;
+		box-shadow: 2px 5px 5px rgba(0,0,0,0.1);
 		color: #000;
+	 }
+	.thumb:hover{
+		box-shadow: 2px 5px 5px rgba(0,101,252,0.4);
+	 }
+	.thumb .visuel{
+		overflow: hidden;
+	 }
+	.thumb .visuel img{
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: cover;
+		object-position: center center;
+	 }
+	.thumb .banner{
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background-color: #FFF;
+	 }
+	.thumb .banner .info{
+		display: flex;
+		flex-direction: column;
+	 }
+	.thumb .banner .info strong{
+		font-size: 1em;
+	 }
+	.thumb .banner > strong::first-letter{
+		text-transform: capitalize;
+	 }
+	.thumb .banner .info .price{
+		font-size: 0.9em;
+	 }
+	.thumb .banner .notation{
+		font-family: "Font Awesome 5 Free";
+		font-size: 0.8em;
+		font-weight: 900;
+	 }
+	.thumb .banner .notation_3::before{
+		color: #0065fc;	
+		content:"\f005 \f005 \f005";
+	 }
+	.thumb .banner .notation_3::after{
+		color: #d9d9d9;
+		content:"\f005 \f005";
+	 }
+	.thumb .banner .notation_4::before{
+		color: #0065fc;
+		content:"\f005 \f005 \f005 \f005";
+	 }
+	.thumb .banner .notation_4::after{
+		color: #d9d9d9;
+		content:"\f005";
+	 }
+	.thumb .banner .notation_5::before{
+		color: #0065fc;
+		content:"\f005 \f005 \f005 \f005 \f005";
+	 }
+
+/***********************************************************************************************************/
+/************************************************** HEADER *************************************************/
+	header{}
+	header .content{
+		display: flex;
+		flex-direction: row;
+		flex-wrap : wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	header .content > p{
+		flex: 1;
+	}
+	nav{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		width: 320px;
+	}
+	nav a{
+		width: 50%;
+		padding: 50px 0px 15px;
+		border: 2px solid transparent;
+		text-align: center;
+		color: #1f1f1f;	
+	}
+	nav a:hover{
+		border-top-color: #0065fc;
+		color: #0065fc;
+	}
+	
+	header .content > span{
+		width: 118px;
+		text-align: center;
+		padding: 50px 0px 15px;
+	}
+	#sign{
+		font-weight: 800;
+		color: #0065fc;		
+	}
+	#logo{
+		width: 6em;
+	}
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+/************************************************** RECHERCHE **********************************************/
+	#recherche{
+		margin-top: 35px;
+	}
+	#recherche p:first-of-type{
+		margin-top: 10px;
+	}
+
+	form{
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
+		width: auto;
+		max-width: 420px;
+		overflow: hidden;
+		border: 1px solid #d9d9d9;
+		border-radius: 10px;
+		background-color:#FFF;
+	}
+	form label{
+		width: 50px;
+		line-height: 50px;
 		text-align: center;
 		background-color: #f2f2f2;
+		color: #000;
 	}
-	form input[type=text]{
-		flex: 1;
+	form input{
 		font: 700 18px/50px 'Raleway', sans-serif;
-		padding-left: 15px;
+		padding: 0px 15px;
+		flex: 1;
+		color: #000;
 		border: none;
 	}
-	form input[type=submit]{
-		width: 135px;
+	form button{
+		padding: 0px 15px;
+		flex: 1;
 		font: 700 18px/50px 'Raleway', sans-serif;
+		border: none;
 		color: #FFF;
 		text-align: center;
 		background-color: #0065fc;
-		border: none;
 	}
-/********* formulaire recherche par ville end ***/
+	form button .fas{
+		display: none;
+	}
+	form button::after{
+		content: "Rechercher";
+	}
+
+	#filtre{
+		margin-top: 25px;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	#filtre h2{ 
+		margin-right: 30px;
+	}
+	#filtre > p{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	#filtre button{
+		margin-right: 25px;
+		display: flex;
+		align-items: center;
+		color: #1f1f1f;
+		border-radius: 25px;
+		border: 2px solid #d9d9d9;
+		overflow: hidden;
+		margin-bottom: 20px;
+		background-color: #FFF;
+	}
+	#filtre button span:first-child{
+		width: 50px;
+		text-align: center;
+		line-height: 50px;
+		color: #0065fc;
+		background-color: #deebff;
+		border-radius:0px 25px 25px 0px;
+		font: 700 18px/50px 'Raleway', sans-serif;
+	}
+	#filtre button span:last-child{
+		font: 700 18px/50px 'Raleway', sans-serif;
+		padding: 0px 15px;
+		white-space: nowrap;
+	}
+	#filtre button span:last-child::first-letter{
+		text-transform: capitalize;
+	}
+	#filtre button:hover{
+		background-color: #deebff;
+		border-color: #0065fc;
+	}
+	
+	#log_result{
+		margin-top: 7px;
+		margin-left: 7px;
+		display: flex;
+		align-items: flex-start;
+	}
+	#log_result span:first-child{
+		min-width: 20px; max-width: 20px;
+		min-height: 20px; max-height: 20px;
+		line-height: 18px;
+		border-radius: 10px;
+		border: 1px solid #d9d9d9;
+		font-size: 12px;
+		text-align: center;
+		color: #0065fc;
+		margin-right: 12px;
+	}
+/***********************************************************************************************************/
+
+/***********************************************************************************************************/
+/************************************************** HEBERGEMENTS *******************************************/
+/***********************************************************************************************************/
+	#hebergement{
+		margin-top: 40px;
+	 }
+	#hebergement .content{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: stretch;
+	 }
+
+	#result_hebergement{
+		padding: 45px 0px;
+		background-color: #f2f2f2;
+		border-radius: 15px;
+	 } 
+	#result_hebergement h1{
+		margin-left: 40px;
+		margin-right: 40px;
+	 }
+	#result_hebergement .box_thumb{
+		justify-content: space-around;
+		margin: 20px 40px 10px 40px;
+	 }
+	#result_hebergement .box_thumb li{
+		margin-bottom: 30px;
+	 }
+	#result_hebergement .thumb{
+		flex-direction: column;
+		height: 190px;
+	 }
+	#result_hebergement .thumb .visuel{
+		height: 115px;
+	 }
+	#result_hebergement .thumb .visuel img{
+		width: 100%;
+		height: auto;
+	 }
+	#result_hebergement .thumb .banner .info{
+		display : flex;
+		justify-content: space-between;
+		height: 100%;
+		padding: 10px 10px 2px 2px;
+	 }
+	#result_hebergement > a{
+		color: #000;
+		font-size: 1em;
+		font-weight: 900;
+		margin-left: 40px;
+	 }
+	
+	#populaire{
+		padding: 45px 0px 35px 0px;
+		background-color: #f2f2f2;
+		border-radius: 15px;
+	 }
+	#populaire h1{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-left: 35px;
+		margin-right: 35px;
+	 }
+	#populaire .box_thumb{
+		margin: 20px 35px 0px 35px;
+	 }
+	#populaire .box_thumb li{
+		margin-bottom: 30px;
+	 }
+	#populaire .thumb{
+		flex-direction: row;
+		height: 135px;
+	 }
+	#populaire .thumb .visuel{
+		width: 130px;
+	 }
+	#populaire .thumb .visuel img{
+		height: 100%;
+		width: auto;
+		max-height: auto;
+		min-width: 100%;
+	 }
+	#populaire .thumb .banner{
+		padding:15px 2px 10px 20px;
+		justify-content: space-between;
+	 }
+	#populaire .thumb .banner .info > strong{
+		margin-bottom: 8px;
+	 }
+
+/***********************************************************************************************************/
+/************************************************** ACTIVITES **********************************************/
+/***********************************************************************************************************/
+	#activite{
+		margin-top: 50px;
+	 }
+	#activite .box_thumb{
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-direction: column;
+		margin-top: 20px;
+	 }
+	#activite .box_thumb li{}
+	#activite .thumb{
+		flex-direction: column;
+		margin: 0px;
+		border: none;
+	 }
+	#activite .thumb .visuel{
+		flex: 1;
+	 }
+	#activite .thumb .visuel img{
+		height: 100%;
+		width: auto;
+		max-height: auto;
+		min-width: 100%;
+	 }
+	#activite .thumb .banner{
+		flex: 0;
+		height: 35px;
+		padding: 10px;
+	 }
+
+/***********************************************************************************************************/
+/************************************************** FOOTER *************************************************/
+/***********************************************************************************************************/
+
+	footer{
+		margin-top: 40px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		background-color: #f2f2f2;
+	}
+	footer .content{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	footer ul{
+		list-style-type: none;
+		width: 30%;
+	}
+	footer ul li{
+		padding: 7px 5px;
+	}
+	footer h2{
+		text-indent: 0px;
+	}
+
+/***********************************************************************************************************/
+/************************************************** MEDIA QUERY ********************************************/
+/***********************************************************************************************************/
+	@media all and ( min-width: 1200px){
+		#result_hebergement{
+			flex: 1;
+		 }
+		#result_hebergement .box_thumb li{
+			width: 30%;
+		 }
+
+		#populaire{
+			width: 420px;
+			margin-left: 40px;
+		 }
+		
+		#activite .box_thumb{ 
+			height : 450px; 
+		 }
+		#activite .box_thumb li{ 
+			width: 23%; 
+		 }
+		#activite .box_thumb li:nth-child(1) .thumb , #activite li:nth-child(4) .thumb{ height: 445px; }
+		#activite li:nth-child(2) .thumb{ height: 235px; }
+		#activite li:nth-child(3) .thumb{ height: 170px; }
+		#activite li:nth-child(5) .thumb{ height: 195px; }
+		#activite li:nth-child(6) .thumb{ height: 210px; } 	
+	}
+	@media all and ( max-width: 1199px) and (min-width: 900px){
+		.thumb .banner .info strong{
+			font-size: 0.8em;
+	 	 }
+		#filtre button span:last-child{
+			font: 700 14px/50px 'Raleway', sans-serif;
+		 }
+		
+		#result_hebergement{
+			flex: 1;
+		 }
+		#result_hebergement .box_thumb li{
+			width: 46%;
+		 }
+
+		#populaire{
+			width: 350px;
+			margin-left: 20px;
+		 }
+		
+		#activite .box_thumb{ 
+			height : 450px; 
+		 }
+		#activite .box_thumb li{ 
+			width: 23%; 
+		 }
+		#activite .box_thumb li:nth-child(1) .thumb , #activite li:nth-child(4) .thumb{ height: 445px; }
+		#activite li:nth-child(2) .thumb{ height: 235px; }
+		#activite li:nth-child(3) .thumb{ height: 170px; }
+		#activite li:nth-child(5) .thumb{ height: 195px; }
+		#activite li:nth-child(6) .thumb{ height: 210px; }
+	}
+	@media all and ( max-width: 899px) and (min-width: 600px){
+		header .content{ 
+			padding: 30px 0px;
+		 }
+		header .content > span{ 
+			width: 45%;
+			order: 2;
+			text-align: right;
+			margin-right: 5%;
+		 }
+		
+		nav{
+			width: 100%;
+			order: 3;
+		 }
+		nav a{
+			border-top: none;
+			border-bottom: 3px solid #f2f2f2;
+			padding: 15px 0px;
+		 }
+		nav a:hover{
+			border-bottom-color: #0065fc;
+		 }
+		
+		form{ 
+			max-width: 360px;	
+		 }
+		form button{
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px; 
+		 }
+		form button::after{
+			content:"";
+			font-family: "Font Awesome 5 Free";
+			font-size: 0.8em;
+			font-weight: 900;
+			content: "\f002";
+		 }
+
+		#logo{ 
+			margin-left: 30px;
+		 }	
+		#filtre button span:last-child{
+			font: 700 14px/50px 'Raleway', sans-serif;
+		 }
+		
+		#hebergement .content{
+			padding: 0px;
+		 }
+		#result_hebergement{
+			width: 100%;
+			order: 2;
+			border-radius: 0px;
+			margin-top : 20px;
+			background-color: transparent;
+		 }
+		#result_hebergement .box_thumb{
+			margin-left: 10px;
+			margin-right: 10px;
+		 }
+		#result_hebergement .box_thumb li{
+			width: 48%;
+			padding:0px;
+		 }
+
+		#populaire{
+			width: 100%;
+			margin-left: 0px;
+			order: 1;
+			border-radius: 0px;
+		 }
+		#populaire .box_thumb{
+			margin-left: 10px;
+			margin-right: 10px;
+		 }
+		#populaire .box_thumb li{
+			width:100%;
+		 }
+	
+		#activite .box_thumb{ 
+			height : auto;
+		 }
+		#activite .box_thumb li{ 
+			width: 100%;
+			margin-bottom: 20px; 
+		 }
+		#activite .box_thumb li .thumb{ 
+			height: 195px; 
+		 }
+		footer{
+			padding-top: 10px;
+		}
+		footer ul{
+			width: 45%;
+			margin-top: 30px;
+		 }
+	}
+	@media all and ( max-width: 599px){
+		header .content{ 
+			padding: 30px 0px;
+		 }
+		header .content > span{ 
+			width: 45%;
+			order: 2;
+			text-align: right;
+			margin-right: 5%;
+		 }
+		
+		nav{
+			width: 100%;
+			order: 3;
+		 }
+		nav a{
+			border-top: none;
+			border-bottom: 3px solid #f2f2f2;
+			padding: 15px 0px;
+		 }
+		nav a:hover{
+			border-bottom-color: #0065fc;
+		 }
+		
+		form{ 
+			max-width: 330px;
+		 }
+		form button{
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px; 
+		 }
+		form button::after{
+			content:"";
+			font-family: "Font Awesome 5 Free";
+			font-size: 0.8em;
+			font-weight: 900;
+			content: "\f002";
+		 }
+
+		#logo{ 
+			margin-left: 30px;
+		 }	
+		#filtre button span:last-child{
+			font: 700 14px/50px 'Raleway', sans-serif;
+		 }
+		
+		#hebergement .content{
+			padding: 0px;
+		 }
+		#result_hebergement{
+			width: 100%;
+			order: 2;
+			border-radius: 0px;
+			margin-top : 30px;
+			background-color: transparent;
+		 }
+		#result_hebergement .box_thumb{
+			margin-left: 10px;
+			margin-right: 10px;
+		 }
+		#result_hebergement .box_thumb li{
+			width: 100%;
+			padding:0px;
+		 }
+		#result_hebergement > a{
+			margin-left: 10px;
+		 }
+
+		#populaire{
+			width: 100%;
+			margin-left: 0px;
+			order: 1;
+			border-radius: 0px;
+		 }
+		#populaire .box_thumb{
+			margin-left: 10px;
+			margin-right: 10px;
+		 }
+		#populaire .box_thumb li{
+			width:100%;
+		 }
+	
+		#activite .box_thumb{ 
+			height : auto;
+		 }
+		#activite .box_thumb li{ 
+			width: 100%;
+			margin-bottom: 20px; 
+		 }
+		#activite .box_thumb li .thumb{ 
+			height: 195px; 
+		 }
+		footer .content{
+			display: block;
+		 }
+		footer ul{
+			width:auto;
+			margin-top:40px;
+		 }
+	}
