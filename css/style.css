@@ -113,7 +113,7 @@
 	.thumb .banner .info strong{
 		font-size: 1em;
 	 }
-	.thumb .banner > strong::first-letter{
+	.thumb .banner .info > strong::first-letter{
 		text-transform: capitalize;
 	 }
 	.thumb .banner .info .price{
